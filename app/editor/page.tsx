@@ -90,7 +90,7 @@ export default function EditorPage() {
         <footer className="flex items-center pl-6 py-2 bg-zinc-900 gap-3">
           <RefreshCcw className="w-3 h-3" color="white" />
           <p className="text-[#e8eaed] text-xs">
-            Last updated on {date} by <span className="font-bold">{title}</span>
+            Last updated on {date}
           </p>
         </footer>
       </div>
