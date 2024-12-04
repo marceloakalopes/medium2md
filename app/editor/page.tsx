@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 import ReactMarkdown from "react-markdown";
 import "github-markdown-css/github-markdown.css";
 import "highlight.js/styles/atom-one-dark.css";
@@ -52,7 +51,6 @@ export default function EditorPage() {
   }, [url]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
       <EditorContext.Provider value={[title, setTitle]}>
       <div className="flex flex-col h-full overflow-hidden">
         {/* Toolbar at the top */}
@@ -97,6 +95,5 @@ export default function EditorPage() {
         </footer>
       </div>
     </EditorContext.Provider>
-    </Suspense>
   );
 }
