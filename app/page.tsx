@@ -54,7 +54,7 @@ export default function HomePage() {
           </h1>
           <p className="text-lg max-w-xl font-medium text-gray-600">
             Convert medium articles to markdown in seconds. Just paste the URL
-            of the article and click convert. It's that simple.
+            of the article and click convert. It&apos;s that simple.
           </p>
           <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
             <Input
