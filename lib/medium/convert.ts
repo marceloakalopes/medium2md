@@ -154,7 +154,7 @@ export async function convertMediumArticleToMarkdown(
     });
 
     // Convert the final cleaned HTML to Markdown
-    let rawMarkdown = turndownService.turndown($("article").html() || "");
+    const rawMarkdown = turndownService.turndown($("article").html() || "");
 
     // Clean up the markdown
     let markdownCleaned = rawMarkdown.replace(/\\([^a-zA-Z0-9\s])/g, "$1");
