@@ -134,7 +134,7 @@ export function ReviewToolbar() {
               // console.log(textarea);
               downloadMarkdown(textarea.value, `${title}.md`);
             }}
-            className="outline-none shadow-lg transform active:scale-75 transition-all"
+            className="max-sm:hidden outline-none shadow-lg transform active:scale-75 transition-all"
             variant="ghost"
             size="sm"
           >
@@ -270,7 +270,7 @@ export function ReviewToolbar() {
           </Button> */}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className=" max-sm:hidden flex items-center gap-2">
           <div className="flex items-center gap-2">
             <TooltipProvider>
               <Tooltip>

@@ -30,7 +30,7 @@ export default function HomePage() {
         {/* Background */}
         <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
         {/* Main Content */}
-        <div className="flex gap-10  flex-col items-center justify-center max-w-3xl text-center">
+        <div className="flex gap-10 max-sm:gap-5  flex-col items-center justify-center max-w-3xl text-center">
           <Link
             target="_blank"
             href="https://github.com/marceloakalopes/medium2md"
@@ -49,10 +49,10 @@ export default function HomePage() {
               </div>
             </span>
           </Link>
-          <h1 className="text-6xl font-medium tracking-tight text-gray-900">
+          <h1 className="text-6xl max-sm:text-4xl font-medium tracking-tight text-gray-900">
             The easiest way to convert medium articles to markdown
           </h1>
-          <p className="text-lg max-w-xl font-medium text-gray-600">
+          <p className="text-lg max-sm:text-md max-w-xl font-medium text-gray-600">
             Convert medium articles to markdown in seconds. Just paste the URL
             of the article and click convert. It&apos;s that simple.
           </p>
