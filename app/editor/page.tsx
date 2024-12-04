@@ -39,8 +39,12 @@ export default function EditorPage() {
             setMarkdown(data.markdown);
             setTitle(data.title || "Medium2Markdown");
           }
-        } catch (error: any) {
-          setMarkdown(error?.message || "Error fetching the article.");
+        } catch (error: unknown) {
+          if (error instanceof Error) {
+            setMarkdown(error.message);
+          } else {
+            setMarkdown("An unexpected error occurred.");
+          }
         }
       })();
     }

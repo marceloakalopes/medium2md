@@ -186,10 +186,10 @@ export async function convertMediumArticleToMarkdown(
     markdownCleaned = lines.join("\n");
 
     return { error: false, markdown: markdownCleaned, title };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       error: true,
-      markdown: error?.message || "Error fetching the article",
+      markdown: (error as Error).message || "Error fetching the article",
     };
   }
 }
