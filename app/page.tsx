@@ -51,7 +51,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className=" flex justify-center items-center h-screen bg-gray-50 w-screen">
+    <div className=" flex justify-center items-center min-h-screen max-h-full bg-gray-50 w-screen">
       {/* Hero Section */}
       <main className="z-0">
         {/* Background */}
