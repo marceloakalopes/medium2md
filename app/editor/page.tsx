@@ -19,9 +19,11 @@ import { EditorContext } from "@/context/EditorContext";
 export default function EditorPage() {
   const searchParams = useSearchParams();
   const url = searchParams.get("url");
+
   const [markdown, setMarkdown] = useState("");
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setDate(new Date().toLocaleDateString("en-US", { dateStyle: "full" }));
@@ -29,6 +31,7 @@ export default function EditorPage() {
 
   useEffect(() => {
     if (url) {
+      setLoading(true);
       (async () => {
         try {
           const res = await fetch(`/api/convert?url=${encodeURIComponent(url)}`);
@@ -45,13 +48,15 @@ export default function EditorPage() {
           } else {
             setMarkdown("An unexpected error occurred.");
           }
+        } finally {
+          setLoading(false);
         }
       })();
     }
   }, [url]);
 
   return (
-      <EditorContext.Provider value={[title, setTitle]}>
+    <EditorContext.Provider value={[title, setTitle]}>
       <div className="flex flex-col h-full overflow-hidden">
         {/* Toolbar at the top */}
         <ReviewToolbar />
@@ -74,13 +79,20 @@ export default function EditorPage() {
             {/* Right Panel with markdown preview */}
             <ResizablePanel defaultSize={50} className="bg-[#0E1117] w-full overflow-hidden">
               <div className="p-4 h-full overflow-auto">
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  rehypePlugins={[rehypeHighlight]}
-                  className="markdown-body"
-                >
-                  {markdown}
-                </ReactMarkdown>
+                {loading ? (
+                  // Loading Spinner
+                  <div className="flex items-center justify-center h-full">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+                  </div>
+                ) : (
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeHighlight]}
+                    className="markdown-body"
+                  >
+                    {markdown}
+                  </ReactMarkdown>
+                )}
               </div>
             </ResizablePanel>
           </ResizablePanelGroup>

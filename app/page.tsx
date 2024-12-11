@@ -51,9 +51,9 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative flex justify-center items-center min-h-screen bg-gray-50">
+    <div className=" flex justify-center items-center h-screen bg-gray-50 w-screen">
       {/* Hero Section */}
-      <main className="px-4 z-0">
+      <main className="z-0">
         {/* Background */}
         <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
         {/* Main Content */}
@@ -80,7 +80,7 @@ export default function HomePage() {
           </Link>
           <h1
             id="heading"
-            className="text-6xl max-sm:text-4xl font-medium tracking-tight text-gray-900 opacity-0 translate-y-44 duration-500 transition-all"
+            className="text-6xl max-sm:text-4xl max-sm:px-4 font-medium tracking-tight text-gray-900 opacity-0 translate-y-44 duration-500 transition-all"
           >
             The easiest way to convert medium articles to{" "}
             <span className="animate-text-gradient inline-flex bg-gradient-to-r from-neutral-900 via-slate-500 to-neutral-600 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-300 dark:via-slate-400 dark:to-neutral-400">
@@ -89,7 +89,7 @@ export default function HomePage() {
           </h1>
           <p
             id="paragraph"
-            className="text-lg max-sm:text-md max-w-xl font-medium text-gray-600 opacity-0 translate-y-44 duration-700 transition-all"
+            className="text-lg max-sm:px-4 max-sm:text-md max-w-xl font-medium text-gray-600 opacity-0 translate-y-44 duration-700 transition-all"
           >
             Convert medium articles to markdown in seconds. Just paste the URL
             of the article and click convert. It&apos;s that simple.
@@ -99,7 +99,7 @@ export default function HomePage() {
             className="max-w-md mx-auto flex flex-col sm:flex-row gap-2 opacity-0 translate-y-44 duration-700 transition-all"
           >
             <Input
-              className="min-w-96 bg-white border-gray-400 text-black h-10"
+              className="min-w-96 max-sm:min-w-80 bg-white border-gray-400 text-black h-10"
               type="email"
               placeholder="Enter Medium Article URL"
               value={url}

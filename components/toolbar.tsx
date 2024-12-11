@@ -132,7 +132,7 @@ export function ReviewToolbar() {
                 "textarea"
               ) as HTMLTextAreaElement;
               // console.log(textarea);
-              downloadMarkdown(textarea.value, `${title}.md`);
+              downloadMarkdown(textarea.value, `${title}`);
             }}
             className="max-sm:hidden outline-none shadow-lg transform active:scale-75 transition-all"
             variant="ghost"
