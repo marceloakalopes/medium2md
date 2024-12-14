@@ -51,18 +51,18 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className=" flex justify-center items-center min-h-screen max-h-full bg-gray-50 w-screen">
-      {/* Hero Section */}
+    <div className="flex justify-center items-center min-h-screen max-h-full bg-gray-50 w-screen">
       <main className="z-0">
         {/* Background */}
         <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
         {/* Main Content */}
-        <div className="flex gap-10 max-sm:gap-5  flex-col items-center justify-center max-w-3xl text-center">
+        <div className="flex gap-10 max-sm:gap-5 flex-col items-center justify-center max-w-3xl text-center">
           <Link
             id="github"
             target="_blank"
             href="https://github.com/marceloakalopes/medium2md"
             className="opacity-0 translate-y-44 duration-700 transition-all"
+            aria-label="Open Source GitHub Repository"
           >
             <span className="relative inline-block overflow-hidden rounded-full p-[1px]">
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#a9a9a9_0%,#0c0c0c_50%,#a9a9a9_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#171717_0%,#737373_50%,#171717_100%)]" />
@@ -82,7 +82,7 @@ export default function HomePage() {
             id="heading"
             className="text-6xl max-sm:text-4xl max-sm:px-4 font-medium tracking-tight text-gray-900 opacity-0 translate-y-44 duration-500 transition-all"
           >
-            The easiest way to convert medium articles to{" "}
+            The easiest way to convert Medium articles to{" "}
             <span className="animate-text-gradient inline-flex bg-gradient-to-r from-neutral-900 via-slate-500 to-neutral-600 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-300 dark:via-slate-400 dark:to-neutral-400">
               Markdown
             </span>
@@ -91,7 +91,7 @@ export default function HomePage() {
             id="paragraph"
             className="text-lg max-sm:px-4 max-sm:text-md max-w-xl font-medium text-gray-600 opacity-0 translate-y-44 duration-700 transition-all"
           >
-            Convert medium articles to markdown in seconds. Just paste the URL
+            Convert Medium articles to Markdown in seconds. Just paste the URL
             of the article and click convert. It&apos;s that simple.
           </p>
           <div
@@ -100,10 +100,11 @@ export default function HomePage() {
           >
             <Input
               className="min-w-96 max-sm:min-w-80 bg-white border-gray-400 text-black h-10"
-              type="email"
+              type="url"
               placeholder="Enter Medium Article URL"
               value={url}
               onChange={(event) => setUrl(event.target.value)}
+              aria-label="Medium Article URL Input"
             />
 
             <TooltipProvider>
@@ -117,6 +118,7 @@ export default function HomePage() {
                       });
                     }}
                     className="w-full h-10 border border-zinc-300 active:scale-95 transition-all duration-200"
+                    aria-label="Paste URL from Clipboard"
                   >
                     <ClipboardPaste />
                   </Button>
@@ -131,6 +133,7 @@ export default function HomePage() {
               onClick={handleConvert}
               variant="secondary"
               className="h-10"
+              aria-label="Convert URL to Markdown"
             >
               Convert
             </Button>
