@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Medium to Markdown - The Easiest Way to Convert Medium Articles",
+  title: "Medium to Markdown - The Easiest Way to Convert Medium Articles to Markdown",
   description:
     "Convert Medium posts to Markdown instantly and for free. Paste your Medium article URL and get a clean Markdown version in seconds.",
   keywords: ["Medium to Markdown", "Markdown converter", "Medium article converter", "Markdown tool", "Convert medium articles to markdown free"],
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://medium2md.com/", // Update with your actual domain
+    canonical: "https://medium2md.com/",
   },
   openGraph: {
     title: "Medium to Markdown - Free Online Converter",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Medium to Markdown Converter",
     images: [
       {
-        url: "https://github.com/marceloakalopes/medium2md/blob/main/images/banner.png", // Placeholder; add your OG image
+        url: "https://github.com/marceloakalopes/medium2md/blob/main/images/banner.png",
         width: 1200,
         height: 630,
         alt: "Medium to Markdown Converter",
@@ -70,10 +70,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Medium to Markdown Converter",
-              "url": "https://yourwebsite.com/",
+              "url": "https://medium2md.com/",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://yourwebsite.com/editor?url={url}",
+                "target": "https://medium2md.com/editor?url={url}",
                 "query-input": "required name=url"
               }
             }),
