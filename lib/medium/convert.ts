@@ -69,7 +69,8 @@ export async function convertMediumArticleToMarkdown(
     if (hostname !== "medium.com") {
       return {
         error: true,
-        markdown: "# Invalid URL: Please use a medium.com URL. \
+        markdown:
+          "# Invalid URL: Please use a medium.com URL. \
         \
         \
           ![image](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG5ycjh2MncxaXkzcW45aHd2dXI4YWM0ZTRmdXloMjJseXl2b2VoZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xdLH51eNWZAHrwy5mf/giphy.webp)",
