@@ -59,7 +59,7 @@ turndownService.addRule("mediumFigure", {
 turndownService.keep(["iframe"]);
 
 export async function convertMediumArticleToMarkdown(
-  url: string
+  url: string,
 ): Promise<
   | { error: false; markdown: string; title: string }
   | { error: true; markdown: string }
@@ -77,8 +77,18 @@ export async function convertMediumArticleToMarkdown(
       };
     }
 
-    const response = await axios.get(url);
     const $ = cheerio.load(response.data);
+    const response = await axios.get(url, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+        Accept:
+          "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        Referer: "https://medium.com/",
+      },
+    });
+
     const articleHtml = $("article").html();
 
     if (!articleHtml) {
