@@ -59,7 +59,7 @@ turndownService.addRule("mediumFigure", {
 turndownService.keep(["iframe"]);
 
 export async function convertMediumArticleToMarkdown(
-  url: string
+  url: string,
 ): Promise<
   | { error: false; markdown: string; title: string }
   | { error: true; markdown: string }
@@ -69,15 +69,26 @@ export async function convertMediumArticleToMarkdown(
     if (hostname !== "medium.com") {
       return {
         error: true,
-        markdown: "# Invalid URL: Please use a medium.com URL. \
+        markdown:
+          "# Invalid URL: Please use a medium.com URL. \
         \
         \
           ![image](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG5ycjh2MncxaXkzcW45aHd2dXI4YWM0ZTRmdXloMjJseXl2b2VoZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xdLH51eNWZAHrwy5mf/giphy.webp)",
       };
     }
 
-    const response = await axios.get(url);
+    const response = await axios.get(url, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+        Accept:
+          "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        Referer: "https://medium.com/",
+      },
+    });
     const $ = cheerio.load(response.data);
+
     const articleHtml = $("article").html();
 
     if (!articleHtml) {
