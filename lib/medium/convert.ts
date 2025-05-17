@@ -77,7 +77,6 @@ export async function convertMediumArticleToMarkdown(
       };
     }
 
-    const $ = cheerio.load(response.data);
     const response = await axios.get(url, {
       headers: {
         "User-Agent":
@@ -88,6 +87,7 @@ export async function convertMediumArticleToMarkdown(
         Referer: "https://medium.com/",
       },
     });
+    const $ = cheerio.load(response.data);
 
     const articleHtml = $("article").html();
 
