@@ -46,7 +46,7 @@ export function ReviewToolbar() {
               // console.log(textarea);
               copyMarkdownToClipboard(textarea.value);
             }}
-            className="flex items-center justify-center h-full px-6 gap-1 text-white border-l border-zinc-700 hover:bg-zinc-800 transition-colors duration-200"
+            className="flex items-center justify-center h-full px-6 gap-1 text-white border-l border-zinc-700 hover:bg-zinc-800 transition-colors duration-200 cursor-pointer"
           >
             <IconCopy
               className="w-4 h-4 mr-2"
@@ -67,7 +67,7 @@ export function ReviewToolbar() {
               // console.log(textarea);
               downloadMarkdown(textarea.value, `${title}`);
             }}
-            className="flex items-center justify-center bg-white h-full px-6 gap-1 text-[#161616] hover:opacity-80 transition-opacity duration-200"
+            className="flex items-center justify-center bg-white h-full px-6 gap-1 text-[#161616] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
           >
             <IconDownload
               className="w-4 h-4 mr-2"

@@ -20,9 +20,9 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative flex justify-center items-center h-[100dvh] bg-gray-50 w-screen overflow-hidden">
+    <div className="relative flex justify-center items-center h-dvh bg-gray-50 w-screen overflow-hidden">
       {/* grids */}
-      <div className="absolute z-0 grid grid-cols-4 left-48 bottom-24 max-md:hidden [mask-image:radial-gradient(circle,black_40%,transparent_70%)]">
+      <div className="absolute z-0 grid grid-cols-4 left-48 bottom-24 max-md:hidden mask-[radial-gradient(circle,black_40%,transparent_70%)]">
         <div className="flex flex-col items-center justify-center">
           <div className="w-16 h-16 border border-zinc-200" />
           <div className="w-16 h-16 border border-zinc-200" />
@@ -51,7 +51,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="absolute z-0 grid grid-cols-4 -right-12 top-24 [mask-image:radial-gradient(circle,black_40%,transparent_70%)]">
+      <div className="absolute z-0 grid grid-cols-4 -right-12 top-24 mask-[radial-gradient(circle,black_40%,transparent_70%)]">
         <div className="flex flex-col items-center justify-center">
           <div className="w-16 h-16 border border-zinc-200" />
           <div className="w-16 h-16 border border-zinc-200" />

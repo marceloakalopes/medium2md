@@ -24,14 +24,7 @@ export const metadata: Metadata = {
     description: "Easily convert Medium articles to Markdown format with a single click.",
     url: "https://medium2md.com/",
     siteName: "Medium to Markdown Converter",
-    images: [
-      {
-        url: "https://github.com/marceloakalopes/medium2md/blob/main/images/banner.png",
-        width: 1200,
-        height: 630,
-        alt: "Medium to Markdown Converter",
-      },
-    ],
+    images: [],
     locale: "en_US",
     type: "website",
   },
@@ -39,7 +32,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Medium to Markdown",
     description: "Convert Medium articles to Markdown quickly and easily.",
-    images: ["https://github.com/marceloakalopes/medium2md/blob/main/images/banner.png"], // Placeholder; add your Twitter share image
   },
   other: {
     "application-name": "Medium to Markdown Converter",
@@ -54,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interTight.className} antialiased`}
+        className={`${interTight.className} antialiased bg-gray-50`}
       >
           {children}
       </body>

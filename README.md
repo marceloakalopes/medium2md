@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/public/images/m2md.png" alt="Medium2MD Logo" width="120" />
+  <img src="/public/images/m2md.png" alt="Medium2MD Logo" width="48" />
 </p>
 
 <h1 align="center">Medium2MD</h1>
