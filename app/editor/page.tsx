@@ -13,7 +13,6 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { RefreshCcw } from "lucide-react";
 import { EditorContext } from "@/context/EditorContext";
 
 export default function EditorPage() {
@@ -22,12 +21,7 @@ export default function EditorPage() {
 
   const [markdown, setMarkdown] = useState("");
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setDate(new Date().toLocaleDateString("en-US", { dateStyle: "full" }));
-  }, []);
 
   useEffect(() => {
     if (url) {
@@ -98,13 +92,6 @@ export default function EditorPage() {
           </ResizablePanelGroup>
         </div>
 
-        {/* Footer at the bottom */}
-        <footer className="flex items-center pl-6 py-2 bg-zinc-900 gap-3">
-          <RefreshCcw className="w-3 h-3" color="white" />
-          <p className="text-[#e8eaed] text-xs">
-            Last updated on {date}
-          </p>
-        </footer>
       </div>
     </EditorContext.Provider>
   );

@@ -1,145 +1,189 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { ArrowRight, ClipboardPaste } from "lucide-react";
+import { IconClone, IconOctopus } from "nucleo-arcade";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export default function HomePage() {
   const [url, setUrl] = useState("");
+  const [hoverCopyButton, setHoverCopyButton] = useState(false);
   const router = useRouter();
 
-  const handleConvert = () => {
+  const handleConvert = (e: React.FormEvent) => {
+    e.preventDefault();
+
     if (url.trim() !== "") {
       router.push(`/editor?url=${encodeURIComponent(url)}`);
     }
   };
 
-  useEffect(() => {
-    const heading = document.getElementById("heading");
-    const paragraph = document.getElementById("paragraph");
-    const urlDiv = document.getElementById("urlDiv");
-    const github = document.getElementById("github");
-
-    setTimeout(() => {
-      heading?.classList.add("opacity-100");
-      heading?.classList.remove("translate-y-44");
-    }, 50);
-
-    setTimeout(() => {
-      paragraph?.classList.add("opacity-100");
-      paragraph?.classList.remove("translate-y-44");
-    }, 200);
-
-    setTimeout(() => {
-      urlDiv?.classList.add("opacity-100");
-      urlDiv?.classList.remove("translate-y-44");
-    }, 400);
-
-    setTimeout(() => {
-      github?.classList.add("opacity-100");
-      github?.classList.remove("translate-y-44");
-    }, 600);
-  }, []);
-
   return (
-    <div className="flex justify-center items-center min-h-screen max-h-full bg-gray-50 w-screen">
-      <main className="z-0">
-        {/* Background */}
-        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
+    <div className="relative flex justify-center items-center h-[100dvh] bg-gray-50 w-screen overflow-hidden">
+      {/* grids */}
+      <div className="absolute z-0 grid grid-cols-4 left-48 bottom-24 max-md:hidden [mask-image:radial-gradient(circle,black_40%,transparent_70%)]">
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+        </div>
+      </div>
+
+      <div className="absolute z-0 grid grid-cols-4 -right-12 top-24 [mask-image:radial-gradient(circle,black_40%,transparent_70%)]">
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+          <div className="w-16 h-16 border border-zinc-200" />
+        </div>
+      </div>
+
+      <nav className="fixed z-10 top-0 max-w-2xl flex items-center justify-between w-full h-16 text-black border-x max-md:border-x-0 border-b border-zinc-200">
+        <div className="pl-6">
+          <IconOctopus />
+        </div>
+        <Link
+          className="h-full"
+          href="https://github.com/marceloakalopes/medium2md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="flex items-center justify-center gap-1 pr-4 pl-5 h-full cursor-pointer text-white bg-[#161616] hover:opacity-90 transition-opacity duration-200">
+            <p className="font-semibold text-sm uppercase">Contribute</p>
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </Link>
+      </nav>
+
+      <main className="z-10">
         {/* Main Content */}
         <div className="flex gap-10 max-sm:gap-5 flex-col items-center justify-center max-w-3xl text-center">
           <Link
             id="github"
             target="_blank"
             href="https://github.com/marceloakalopes/medium2md"
-            className="opacity-0 translate-y-44 duration-700 transition-all"
             aria-label="Open Source GitHub Repository"
           >
-            <span className="relative inline-block overflow-hidden rounded-full p-[1px]">
-              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#a9a9a9_0%,#0c0c0c_50%,#a9a9a9_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#171717_0%,#737373_50%,#171717_100%)]" />
-              <div className="inline-flex h-full w-full cursor-pointer justify-center rounded-full bg-white px-3 py-1 text-xs font-medium leading-5 text-slate-600 backdrop-blur-xl dark:bg-black dark:text-slate-200">
-                Open Source ⚡️
-                <span className="inline-flex items-center pl-2 text-black dark:text-white">
-                  Read more{" "}
-                  <ArrowRight
-                    className="pl-0.5 text-black dark:text-white"
-                    size={16}
-                  />
-                </span>
-              </div>
-            </span>
+            <div className="flex items-center justify-center gap-2 text-black font-semibold text-sm max-md:text-xs uppercase">
+              <span>Open Source</span>
+              <span className="text-zinc-300">/</span>
+              <span>Learn More</span>
+            </div>
           </Link>
-          <h1
-            id="heading"
-            className="text-6xl max-sm:text-4xl max-sm:px-4 font-medium tracking-tight text-gray-900 opacity-0 translate-y-44 duration-500 transition-all"
-          >
-            The easiest way to convert Medium articles to{" "}
-            <span className="animate-text-gradient inline-flex bg-gradient-to-r from-neutral-900 via-slate-500 to-neutral-600 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-300 dark:via-slate-400 dark:to-neutral-400">
-              Markdown
-            </span>
-          </h1>
-          <p
-            id="paragraph"
-            className="text-lg max-sm:px-4 max-sm:text-md max-w-xl font-medium text-gray-600 opacity-0 translate-y-44 duration-700 transition-all"
-          >
-            Convert Medium articles to Markdown in seconds. Just paste the URL
-            of the article and click convert. It&apos;s that simple.
-          </p>
-          <div
+          <div className="flex flex-col items-center justify-center gap-4">
+            <h1
+              id="heading"
+              className="text-5xl max-sm:text-3xl max-sm:px-4 font-medium tracking-tight text-gray-900"
+            >
+              The easiest way to convert <br /> medium articles to markdown
+            </h1>
+            <p
+              id="paragraph"
+              className="text-md max-sm:px-4 max-sm:text-sm max-w-xl font-medium text-gray-500"
+            >
+              Convert Medium articles to markdown in seconds. <br /> Just paste
+              the URL of the article and click convert. It&apos;s that simple.
+            </p>
+          </div>
+          <form
+            onSubmit={handleConvert}
             id="urlDiv"
-            className="max-w-md mx-auto flex flex-col sm:flex-row gap-2 opacity-0 translate-y-44 duration-700 transition-all"
+            className="max-w-md flex items-center justify-center h-14 max-md:flex-col max-md:h-28"
           >
-            <Input
-              className="min-w-96 max-sm:min-w-80 bg-white border-gray-400 text-black h-10"
+            <input
+              className="px-6 h-full min-w-96 max-sm:min-w-80 bg-white border border-zinc-200 text-black focus:outline-none focus:border-2"
               type="url"
-              placeholder="Enter Medium Article URL"
+              placeholder="Enter medium article URL"
               value={url}
               onChange={(event) => setUrl(event.target.value)}
-              aria-label="Medium Article URL Input"
+              aria-label="Medium article URL input"
+              required
             />
 
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    onClick={() => {
-                      setUrl("");
-                      navigator.clipboard.readText().then((text) => {
-                        setUrl(text);
-                      });
-                    }}
-                    className="w-full h-10 border border-zinc-300 active:scale-95 transition-all duration-200"
-                    aria-label="Paste URL from Clipboard"
-                  >
-                    <ClipboardPaste />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Paste</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-
-            <Button
-              onClick={handleConvert}
-              variant="secondary"
-              className="h-10"
+            <button
+              type="submit"
+              className="text-white px-6 h-full max-md:w-full font-semibold uppercase border bg-[#161616] cursor-pointer hover:opacity-90 transition-opacity duration-200"
               aria-label="Convert URL to Markdown"
             >
               Convert
-            </Button>
-          </div>
+            </button>
+
+            <button
+              onMouseEnter={() => setHoverCopyButton(true)}
+              onMouseLeave={() => setHoverCopyButton(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setUrl("");
+                navigator.clipboard.readText().then((text) => {
+                  setUrl(text);
+                });
+              }}
+              className="relative z-20 w-full px-6 h-full border border-zinc-200 cursor-pointer active:scale-95 transition-all duration-200 max-md:hidden"
+              aria-label="Paste URL from Clipboard"
+            >
+              <IconClone
+                className="w-[18px] h-[18px]"
+                style={
+                  {
+                    "--nc-arcade-color-1": "#161616" as string,
+                  } as React.CSSProperties
+                }
+              />
+
+              <span
+                className={`absolute top-[120%] left-1/2 -translate-x-1/2 w-max uppercase font-bold text-xs text-white bg-[#161616] px-3 py-1.5 z-0 pointer-events-none ${hoverCopyButton ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-12 scale-50"} transition-all duration-200`}
+              >
+                paste
+              </span>
+            </button>
+          </form>
         </div>
       </main>
+
+      {/* footer */}
+      <footer></footer>
     </div>
   );
 }

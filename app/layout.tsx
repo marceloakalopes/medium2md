@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const interTight = localFont({
+  src: "./fonts/InterTight.ttf"
+})
 
 export const metadata: Metadata = {
   title: "Medium to Markdown - The Easiest Way to Convert Medium Articles to Markdown",
@@ -61,35 +53,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* JSON-LD Structured Data for a Website / Tool */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Medium to Markdown Converter",
-              "url": "https://medium2md.com/",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://medium2md.com/editor?url={url}",
-                "query-input": "required name=url"
-              }
-            }),
-          }}
-        />
-      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${interTight.className} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
-        >
           {children}
-        </ThemeProvider>
       </body>
     </html>
   );
