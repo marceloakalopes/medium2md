@@ -90,9 +90,9 @@ export default function HomePage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="flex items-center justify-center gap-1 pr-4 pl-5 h-full cursor-pointer text-white bg-[#161616] hover:opacity-90 transition-opacity duration-200">
+          <button className="group flex items-center justify-center gap-2 pr-4 pl-5 h-full cursor-pointer text-white bg-[#161616] hover:opacity-90 transition-opacity duration-200">
             <p className="font-semibold text-sm uppercase">Contribute</p>
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="p-0 group-hover:p-0.5 group-hover:bg-white w-4 h-4 group-hover:text-black transition-all duration-200" />
           </button>
         </Link>
       </nav>
