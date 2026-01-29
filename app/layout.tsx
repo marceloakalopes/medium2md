@@ -7,11 +7,11 @@ const interTight = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Medium to Markdown - The Easiest Way to Convert Medium Articles to Markdown",
+  title: "Medium to Markdown | Convert Medium Articles to Markdown",
   description:
     "Convert Medium posts to Markdown instantly and for free. Paste your Medium article URL and get a clean Markdown version in seconds.",
   keywords: ["Medium to Markdown", "Markdown converter", "Medium article converter", "Markdown tool", "Convert medium articles to markdown free"],
-  authors: [{ name: "Marcelo Lopes", url: "https://marcel0.dev" }],
+  authors: [{ name: "Marcelo Lopes", url: "https://marcel0.com" }],
   robots: {
     index: true,
     follow: true,
