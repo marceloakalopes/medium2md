@@ -81,20 +81,32 @@ export default function HomePage() {
       </div>
 
       <nav className="fixed z-10 top-0 max-w-2xl flex items-center justify-between w-full h-16 text-black border-x max-md:border-x-0 border-b border-zinc-200">
-        <div className="pl-6">
+        <div className="pl-8">
           <IconOctopus />
         </div>
+        <div className="flex items-center justify-center h-full">
+        <Link
+          className="h-full"
+          href="https://buymeacoffee.com/marceloakalopes"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="flex items-center justify-center gap-2 px-5 border-l border-zinc-200 h-full cursor-pointer text-black hover:opacity-90 transition-opacity duration-200">
+            <p className="font-semibold text-sm uppercase">Support</p>
+          </button>
+        </Link>
         <Link
           className="h-full"
           href="https://github.com/marceloakalopes/medium2md"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="group flex items-center justify-center gap-2 pr-4 pl-5 h-full cursor-pointer text-white bg-[#161616] hover:opacity-90 transition-opacity duration-200">
+          <button className="group flex items-center justify-center gap-2 pr-4 pl-5 h-full cursor-pointer text-white bg-[#161616] hover:opacity-90 transition-opacity duration-200 max-md:hidden">
             <p className="font-semibold text-sm uppercase">Contribute</p>
             <ChevronRight className="p-0 group-hover:p-0.5 group-hover:bg-white w-4 h-4 group-hover:text-black transition-all duration-200" />
           </button>
         </Link>
+        </div>
       </nav>
 
       <main className="z-10">
