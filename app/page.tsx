@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { IconClone, IconOctopus } from "nucleo-arcade";
-import { ChevronRight, Zap, SplitSquareHorizontal, Image, Link2, Code, Copy } from "lucide-react";
+import { IconBolt, IconClone, IconDividerX, IconOctopus, IconImageMountain2, IconLink, IconBracketsCurly, IconCopy } from "nucleo-arcade";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -20,7 +20,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative flex flex-col items-center bg-gray-50 w-screen overflow-x-hidden">
+    <div className="relative flex flex-col items-center bg-gray-50 max-w-screen overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative flex justify-center items-center min-h-dvh w-full">
         {/* grids */}
@@ -82,7 +82,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <nav className="fixed z-10 top-0 max-w-2xl flex items-center justify-between w-full h-16 text-black border-x max-md:border-x-0 border-b border-zinc-200 bg-gray-50">
+        <nav className="fixed z-20 top-0 max-w-2xl flex items-center justify-between w-full h-16 text-black border-x max-md:border-x-0 border-b border-zinc-200 bg-gray-50">
           <div className="pl-8">
             <Link href="/" aria-label="medium2md home">
               <IconOctopus />
@@ -253,37 +253,37 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              icon: Zap,
+              icon: IconBolt,
               title: "Instant Conversion",
               description:
                 "Convert any Medium article to Markdown in seconds. No waiting, no signup required.",
             },
             {
-              icon: SplitSquareHorizontal,
+              icon: IconDividerX,
               title: "Split-Screen Editor",
               description:
                 "Edit Markdown on the left, see a live preview on the right. Fine-tune your output easily.",
             },
             {
-              icon: Image,
+              icon: IconImageMountain2,
               title: "Image Preservation",
               description:
                 "All images are preserved with proper alt text and captions in the Markdown output.",
             },
             {
-              icon: Link2,
+              icon: IconLink,
               title: "Link Preservation",
               description:
                 "Hyperlinks, references, and embeds are maintained accurately in the converted Markdown.",
             },
             {
-              icon: Code,
+              icon: IconBracketsCurly,
               title: "Code Block Support",
               description:
                 "Code snippets and blocks are correctly formatted with syntax highlighting.",
             },
             {
-              icon: Copy,
+              icon: IconCopy,
               title: "One-Click Copy",
               description:
                 "Paste a URL from your clipboard with one click, and copy the result just as easily.",
