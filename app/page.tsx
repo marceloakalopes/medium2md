@@ -106,9 +106,9 @@ export default function HomePage() {
             href="https://github.com/marceloakalopes/medium2md"
             aria-label="Open Source GitHub Repository"
           >
-            <div className="flex items-center justify-center gap-2 text-black font-semibold text-sm max-md:text-xs uppercase">
+            <div className="group flex items-center justify-center gap-2 text-black font-semibold text-sm max-md:text-xs uppercase">
               <span>Open Source</span>
-              <span className="text-zinc-300">/</span>
+              <span className="group-hover:-rotate-30 transition-transform duration-200 text-zinc-300">/</span>
               <span>Learn More</span>
             </div>
           </Link>
